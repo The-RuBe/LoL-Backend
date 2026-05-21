@@ -1,3 +1,5 @@
 spring:
   application:
     name: lol
+  mongodb:
+    url: mongodb://localhost:27017/proyecto
