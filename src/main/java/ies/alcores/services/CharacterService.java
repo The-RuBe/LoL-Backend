@@ -39,4 +39,5 @@ public class CharacterService {
     public Character update(Character c) {
         return this.characterRepository.save(c);
     }
+    
 }
