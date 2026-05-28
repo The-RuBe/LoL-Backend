@@ -2,7 +2,6 @@ package ies.alcores.controllers;
 
 import ies.alcores.persistence.model.Character;
 import ies.alcores.services.CharacterService;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,9 +37,9 @@ public class CharacterController {
         return characterService.delete(id) ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity<Character> update(@PathVariable final String id, @RequestBody final Character character) {
         Optional<Character> updated = this.characterService.update(id, character);
-        return updated.map(ResponseEntity:ok).orElseGet(() -> ResponseEntity.notFound().build());
+        return updated.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 }

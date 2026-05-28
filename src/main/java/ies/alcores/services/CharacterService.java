@@ -36,8 +36,10 @@ public class CharacterService {
                 }).orElse(false);
     }
 
-    public Character update(Character c) {
-        return this.characterRepository.save(c);
+    public Optional<Character> update(String id, Character character) {
+        character.setId(id);
+        return this.characterRepository.findById(id)
+                .map(c -> this.characterRepository.save(character));
     }
-    
+
 }
