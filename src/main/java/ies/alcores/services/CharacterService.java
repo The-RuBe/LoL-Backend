@@ -42,4 +42,8 @@ public class CharacterService {
                 .map(c -> this.characterRepository.save(character));
     }
 
+    public List<Character> findMultipleRole() {
+        return this.characterRepository.findCharacterWithTwoRoles();
+    }
+
 }

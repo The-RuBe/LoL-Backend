@@ -43,4 +43,9 @@ public class CharacterController {
         Optional<Character> updated = this.characterService.update(id, character);
         return updated.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
+
+    @GetMapping("/filter/multiplerol")
+    public ResponseEntity<List<Character>> getMultipleRole() {
+        return ResponseEntity.ok(this.characterService.findMultipleRole());
+    }
 }
