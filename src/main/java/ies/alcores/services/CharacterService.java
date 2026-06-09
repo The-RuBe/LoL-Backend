@@ -46,4 +46,8 @@ public class CharacterService {
         return this.characterRepository.findCharacterWithTwoRoles();
     }
 
+    public List<Character> findTankRole() {
+        return this.characterRepository.findCharacterWithRoleTank();
+    }
+
 }

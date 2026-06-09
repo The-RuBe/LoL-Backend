@@ -48,4 +48,9 @@ public class CharacterController {
     public ResponseEntity<List<Character>> getMultipleRole() {
         return ResponseEntity.ok(this.characterService.findMultipleRole());
     }
+
+    @GetMapping("/filter/tank")
+    public ResponseEntity<List<Character>> getRoleTank() {
+        return ResponseEntity.ok(this.characterService.findTankRole());
+    }
 }
